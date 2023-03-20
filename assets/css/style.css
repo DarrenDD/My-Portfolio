@@ -644,6 +644,11 @@ img{
     stroke-dasharray: 125.6;
     transform: rotate(-90deg);
   } 
+  .autoplay-progress,
+  .autoplay-progress svg{
+    display: none;
+}
+    
   .swiper-button-prev::after,
   .swiper-button-next::after{
     content: '';
@@ -658,8 +663,11 @@ img{
   .swiper-portfolio-next{
     right: -.5rem;
   }
-  .mySwiper-horizontal > .swiper-pagination-bullets{
+  .swiper-horizontal > .swiper-pagination-bullets{
     bottom: -2.5rem;
+  }
+  .swiper-pagination-bullets{
+    position: sticky;
   }
   .swiper-pagination-bullet-active{
     background-color: var(--first-color);
