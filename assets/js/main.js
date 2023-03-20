@@ -94,6 +94,7 @@ const progressCircle = document.querySelector(".autoplay-progress svg");
     let swiper = new Swiper(".portfolio__container", {
       spaceBetween: 30,
       centeredSlides: true,
+      loop:true,
       autoplay: {
         delay: 4000,
         disableOnInteraction: false,
@@ -105,7 +106,7 @@ const progressCircle = document.querySelector(".autoplay-progress svg");
       },
       navigation: {
         nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
+        prevEl: ".swiper-button-prev"        
       },
       on: {
         autoplayTimeLeft(s, time, progress) {
