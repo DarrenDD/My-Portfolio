@@ -5,7 +5,7 @@
 :root{
     --header-height: 3rem;
 
-    --hue-color: 215;
+    --hue-color: 250;
     /* HSL colors */
     --first-color: hsl(var(--hue-color), 100%, 65%);
     --first-color-second: hsl(var(--hue-color), 100%, 65%);
@@ -17,8 +17,8 @@
     --input-color: hsl(var(--hue-color), 70%, 96%);
     --body-color: hsl(var(--hue-color), 60%, 99%);
     --container-color: #fff;
-    --scroll-bar-color: ;
-    --scroll-thumb-color: ;
+    --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+    --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
 
     /* font and topography */
     --body-font: 'Poppins', sans-serif;
@@ -62,6 +62,33 @@
         --small-font-size: .875rem;
         --smaller-font-size: .813rem;
     }
+}
+/* Variable dark theme */
+body.dark-theme{
+    /* HSL colors */    
+    --first-color-second: hsl(var(--hue-color), 30%, 8%);    
+    --title-color: hsl(var(--hue-color), 8%, 95%);
+    --text-color: hsl(var(--hue-color), 8%, 75%);
+    --input-color: hsl(var(--hue-color), 29%, 16%);
+    --body-color: hsl(var(--hue-color), 28%, 12%);
+    --container-color: hsl(var(--hue-color), 29%, 16%);
+    --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
+    --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+}
+
+/* Button Dark/light theme */
+.nav__btns{
+    display: flex;
+    align-items: center;
+}
+.change-theme{
+    font-size: 1.25rem;
+    columns: var(--title-color) ;
+    margin-right: var(--mb-1);
+    cursor: pointer;
+}
+.change-theme:hover{
+    color: var(--first-color);
 }
 
 /* base */
@@ -824,4 +851,68 @@ img{
 }
 .show-scroll{
     bottom: 5rem;
+}
+
+/* scroll-bar */
+::-webkit-scrollbar{
+    width: .60rem;
+    background-color: var(--scroll-bar-color);
+    border-radius: .5rem;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--scroll-thumb-color);
+    border-radius: .5rem;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: var(--text-color-light);
+}
+
+@media screen and (max-width: 350px){
+    .container{
+        margin-left: var(--mb-1);
+        margin-right: var(--mb-1);
+    }
+    .nav__menu{
+        padding: 2rem .25rem 4rem;
+    }
+    .nav__list{
+        column-gap: 0;
+    }
+    .home__content{
+        grid-template-columns: .25fr 3fr;
+    }
+    .home__blob{
+        width: 180px;
+    }
+    .skills__title{
+        font-size: var(--normal-font-size);
+    }
+    .qualification__data{
+        gap: .5rem;
+    }
+    .services__container{
+        grid-template-columns: max-content;
+        justify-content: center;
+    }
+    .services__content{
+        padding-right: 3.5rem;
+    }
+    .services__modal{
+        padding: 0 .5rem;
+    }
+    .project__img{
+        width: 200px;
+    }
+}
+@media screen and (min-width: 568px){
+    .home__container{
+        grid-template-columns: max-content 1fr 1fr;
+    }
+    .home__data{
+        grid-column: initial;
+    }
+    .home__img{
+        order: 1;
+        justify-self: center;
+    }
 }
