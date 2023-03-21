@@ -90,28 +90,72 @@ modalClose.forEach((modalClose) =>{
 // Swiper
 
 const progressCircle = document.querySelector(".autoplay-progress svg");
-    const progressContent = document.querySelector(".autoplay-progress span");
-    let swiper = new Swiper(".portfolio__container", {
-      spaceBetween: 30,
-      centeredSlides: true,
-      loop:true,
-      autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-        loop: true
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"        
-      },
-      on: {
-        autoplayTimeLeft(s, time, progress) {
-          progressCircle.style.setProperty("--progress", 1 - progress);
-          progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+const progressContent = document.querySelector(".autoplay-progress span");
+
+let swiper = new Swiper(".portfolio__container", {
+    spaceBetween: 30,
+    centeredSlides: true,
+    loop:true,
+    autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+    loop: true
+    },
+    pagination: {
+    el: ".swiper-pagination",
+    clickable: true
+    },
+    navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"        
+    },
+    on: {
+    autoplayTimeLeft(s, time, progress) {
+        progressCircle.style.setProperty("--progress", 1 - progress);
+        progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+    }
+    }
+});
+// scroll active link highlighter
+const sections = document.querySelectorAll('section[id]')
+
+function scrollActive(){
+    const scrollY = window.pageYOffset
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight
+        const sectionTop = current.offsetTop - 50;
+        sectionId = current.getAttribute('id')
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+        }else{
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
         }
-      }
-    });
+    })
+}
+window.addEventListener('scroll', scrollActive)
+
+// Change background header
+function scrollHeader(){
+    const nav = document.getElementById('header')
+    // When the scroll is greater thn 200 viewpoint height, add the scroll-header class to the header tag
+    if(this.scrollY >= 80) {
+        nav.classList.add('scroll-header')
+    }else{
+        nav.classList.remove('scroll-header')
+    }
+}
+window.addEventListener('scroll', scrollHeader)
+
+// Show scroll top
+
+function scrollUp(){
+    const scrollUp = document.getElementById('scroll-up');
+    //when the scrolll is higher than 560 viewpoint height, add the show-scroll class to the a tag with the scroll icon
+    if(this.scrollY >= 560){
+        scrollUp.classList.add('show-scroll');
+    }else{
+        scrollUp.classList.remove('show-scroll');
+    }
+}
+window.addEventListener('scroll', scrollUp)
