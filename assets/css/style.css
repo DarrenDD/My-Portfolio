@@ -867,6 +867,8 @@ img{
     background-color: var(--text-color-light);
 }
 
+/* ==================Media queries=================== */
+
 @media screen and (max-width: 350px){
     .container{
         margin-left: var(--mb-1);
@@ -905,7 +907,7 @@ img{
     }
 }
 @media screen and (min-width: 568px){
-    .home__container{
+    .home__content{
         grid-template-columns: max-content 1fr 1fr;
     }
     .home__data{
