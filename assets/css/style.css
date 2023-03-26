@@ -5,7 +5,7 @@
 :root{
     --header-height: 3rem;
 
-    --hue-color: 250;
+    --hue-color: 235;
     /* HSL colors */
     --first-color: hsl(var(--hue-color), 100%, 65%);
     --first-color-second: hsl(var(--hue-color), 100%, 65%);
@@ -383,6 +383,7 @@ img{
 /* =========================== SKills =============================== */
 .skills__container{
     row-gap: 0;
+    justify-content: center;
 
 }
 .skills__header{
@@ -1092,28 +1093,18 @@ img{
     .swiper-horizontal > .swiper-pagination-bullet{
         bottom: -4.5rem;
     }
+    .project__container{
+        margin: 4rem;
+    }
     .contact__form{
         width: 460px;
     }
     .contant__inputs{
         grid-template-columns: repeat(2, 1fr);
     }
-}
-
-/* @media screen and (max-width: 767px) {
-    .nav__menu {
-      position: fixed;
-      bottom: -100%;
-      left: 0;
-      width: 100%;
-      background-color: var(--body-color);
-      padding: 2rem 1.5rem 4rem;
-      box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
-      border-radius: 1.5rem 1.5rem 0 0;
-      transition: .3s;
+    .footer__bg{
+        margin-left: 1rem;
+        margin-right: .5rem;
     }
-    .nav__list {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-      }
-} */
+
+}
