@@ -190,3 +190,29 @@ themeButton.addEventListener('click', () =>{
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+// Email sender
+function sendEmail(){
+    var email = {
+      name : document.getElementById("name").value, 
+      email : document.getElementById("email").value,
+      project : document.getElementById("project").value,
+      message : document.getElementById("message").value
+    };
+    const serviceId = "service_qmtgsth";
+  const templateId = "template_6m0je1i";
+  
+  emailjs.send(serviceId, templateId, email).then(
+    resp => {
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("project").value = "";
+      document.getElementById("message").value = "";
+  
+      console.log(resp);
+      alert("Message sent")
+    }
+  )
+  .catch((err) => console.log(err));
+  }
+  

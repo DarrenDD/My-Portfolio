@@ -627,23 +627,23 @@
                     <div class="contact__inputs grid">
                         <div class="contact__content">
                             <label for="" class="contact__label">Name</label>
-                            <input type="text" class="contact__input" title="name">
+                            <input type="text" id="name" class="contact__input" title="name">
                         </div>
                         <div class="contact__content">
                             <label for="" class="contact__label">Email</label>
-                            <input type="email" class="contact__input" title="email">
+                            <input type="email" id="email" class="contact__input" title="email">
                         </div>
                     </div>
                     <div class="contact__content">
                         <label for="" class="contact__label">Project</label>
-                        <input type="text" class="contact__input" title="project">
+                        <input type="text" id="project" class="contact__input" title="project">
                     </div>
                     <div class="contact__content">
                         <label for="" class="contact__label">Message</label>
-                        <textarea name="" id="" cols="0" rows="7" class="contact__input" title="message"></textarea>
+                        <textarea name="" id="message" cols="0" rows="7" class="contact__input" title="message"></textarea>
                     </div>
                     <div>
-                        <a href="#" class="button button--flex">
+                        <a class="button button--flex" type="button" onclick="sendEmail()">
                             Send Message
                             <i class="uil uil-message button__icon"></i>
                         </a>
@@ -690,5 +690,13 @@
 
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("hN6kdLAQkBby1Pqb0");
+        })();
+    </script>
 </body>
 </html>
