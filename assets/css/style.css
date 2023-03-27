@@ -282,9 +282,10 @@ img{
 }
 .home__description{
     margin-bottom: var(--mb-2);
+    justify-content: center;
 }
 .home__scroll{
-    display:none;
+    display:flex;
 
 }
 .home__scroll-button{
